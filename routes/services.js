@@ -77,4 +77,16 @@ router.post('/deleteService', async (req, res) => {
         res.json({ msg: 'Usluga Obrisana', success: true, results });
     })
 })
+// GET SINGLE SERVICE BY ID
+router.post('/getServiceById', async (req, res) => {
+    let serviceId = req.body.value
+    let sql = `SELECT * FROM services WHERE serviceId = ${serviceId}`
+    let query = await db.query(sql, (err, results) => {
+        if (err) {
+            res.json({ msg: '', success: false });
+            throw err
+        };
+        res.json({ msg: '', success: true, results });
+    })
+})
 module.exports = router;

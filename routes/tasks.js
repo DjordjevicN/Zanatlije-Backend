@@ -95,4 +95,20 @@ router.post('/getTaskProposals', async (req, res) => {
         res.json({ msg: '', success: true, results });
     })
 })
+
+//  GET TASK BY ID
+router.post('/getTaskById', async (req, res) => {
+    let taskId = req.body.value;
+    let sql = `SELECT * FROM tasks WHERE taskId = '${taskId}'`
+    let query = db.query(sql, (err, results) => {
+        if (err) {
+            res.json({ msg: '', success: false });
+            throw err
+        };
+        res.json({ msg: '', success: true, results });
+    })
+})
+
+
+
 module.exports = router;
