@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     let sql = `SELECT * FROM users WHERE userId = '1'`
     let query = db.query(sql, (err, results) => {
         if (err) throw err;
-        res.json({ results, notification: '' })
+        res.json('TESTIRANJE BACKEND RADI')
     })
 })
 
